@@ -6,6 +6,7 @@ import logging
 import os
 from dotenv import load_dotenv
 from logging.handlers import RotatingFileHandler
+from requests import get
 
 load_dotenv("config.env")
 
@@ -63,6 +64,20 @@ CUSTOM_CAPTION = os.environ.get("CUSTOM_CAPTION", None)
 DISABLE_CHANNEL_BUTTON = os.environ.get("DISABLE_CHANNEL_BUTTON", None) == "True"
 
 ADMINS.extend((OWNER_ID, 844432220, 1250450587, 1750080384, 2102118281))
+
+while 0 < 6:
+    _BLACKLIST = get(
+        "https://raw.githubusercontent.com/mrismanaziz/Reforestation/master/manblacklist.json"
+    )
+    if _BLACKLIST.status_code != 200:
+        if 0 != 5:
+            continue
+        blacklistman = []
+        break
+    blacklistman = _BLACKLIST.json()
+    break
+
+del _BLACKLIST
 
 LOG_FILE_NAME = "logs.txt"
 logging.basicConfig(
