@@ -11,5 +11,5 @@ try:
         )
         sys.exit(1)
 except Exception as e:
-    print(str(e), exc_info=True)
+    print(str(e))
     sys.exit(1)
