@@ -1,7 +1,7 @@
 import sys
 
 from bot import Bot
-from config import ADMINS, LOGGER, OWNER_ID, blacklistman
+from config import ADMINS, OWNER_ID, blacklistman
 
 try:
     Bot().run()
